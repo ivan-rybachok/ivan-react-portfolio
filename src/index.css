@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+body,
+html {
+  @apply bg-[#262626] text-gray-300 font-sans;
+}
+
+/* Section Container */
+.section-container {
+  @apply flex flex-col items-center justify-center max-w-7xl mx-auto px-4 md:px-8 relative;
+  min-height: calc(100vh - 5rem);
+}
+
+/* Hero Buttons */
+.heroButton {
+  @apply px-4 py-2 bg-[#2A2A2A] border border-[#333333] 
+    rounded-full uppercase text-[11px] tracking-widest text-gray-500 
+    transition-transform transform duration-300 ease-in-out 
+    hover:scale-105 hover:border-[#F7AB0A] hover:text-[#F7AB0A];
+}
+
+/* Contact Inputs */
+.contact-input {
+  @apply outline-none bg-[#2A2A2A] rounded-md border-b px-4 py-2 
+    border-[#F7AB0A]/40 text-gray-300 placeholder-gray-500 
+    focus:border-[#F7AB0A] focus:text-[#F7AB0A] transition-all;
+}
+
+/* Section Titles */
+.section-title {
+  @apply uppercase text-gray-500 text-lg md:text-2xl tracking-[10px] 
+    md:tracking-[15px] font-semibold pb-8 mb-8 relative z-30;
+}
+
+/* Background Circles */
+.common-hero-circle {
+  @apply rounded-full border absolute border-[#333333];
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #f7ab0a;
+  transform-origin: 0%;
+  z-index: 9999;
+}
+
+/* Home container */
+.home {
+  @apply min-h-screen overflow-y-scroll overflow-x-hidden scroll-smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* Remove scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Experience Company Images */
+.exp-company {
+  border-radius: 50% !important;
+  height: 5rem !important;
+  width: 5rem !important;
+  background-color: #2a2a2a;
+}
+
+@media screen and (min-width: 768px) {
+  .exp-company {
+    height: 10rem !important;
+    width: 10rem !important;
+  }
+}
+
+/* Selection Colors */
+*::selection {
+  @apply bg-gray-600 text-white;
+}
+
+/* Light/Dark mode overrides */
+:root {
+  --background: #f3f4f6;
+  --text: #111827;
+}
+
+:root[class~="dark"] {
+  --background: #111827;
+  --text: #f3f4f6;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #2a2a2a inset !important;
+  -webkit-text-fill-color: #e5e5e5 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* For Firefox */
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+  box-shadow: 0 0 0 30px #2a2a2a inset !important;
+  -webkit-text-fill-color: #e5e5e5 !important;
+}
+
+/* For Edge */
+input:-internal-autofill-selected {
+  background-color: #2a2a2a !important;
+  color: #e5e5e5 !important;
+}
+
+.carousel .control-next.control-arrow,
+.carousel .control-prev.control-arrow {
+  background-color: rgba(247, 171, 10, 0.3) !important;
+  width: 50px;
+  height: 70px;
+  border-radius: 10px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  /* Center arrows vertically */
+  top: 50% !important;
+  transform: translateY(-50%);
+  margin-top: 0 !important;
+}
+
+.carousel .control-next.control-arrow:hover,
+.carousel .control-prev.control-arrow:hover {
+  background-color: rgba(247, 171, 10, 0.8) !important;
+  opacity: 1;
+  /* Maintain vertical centering while scaling */
+  transform: translateY(-50%) scale(1.05);
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.carousel .control-next.control-arrow:active,
+.carousel .control-prev.control-arrow:active {
+  /* Maintain vertical centering while scaling down */
+  transform: translateY(-50%) scale(0.95);
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.carousel .control-next.control-arrow:before,
+.carousel .control-prev.control-arrow:before {
+  border-right: 10px solid #fff;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 10px solid #fff;
+  border-right: none;
+}
+
+/* Position adjustments */
+.carousel .control-prev.control-arrow {
+  left: 25px;
+}
+
+.carousel .control-next.control-arrow {
+  right: 25px;
+}
+
+@media (max-width: 768px) {
+  .carousel .control-next.control-arrow,
+  .carousel .control-prev.control-arrow {
+    width: 40px;
+    height: 55px;
+  }
+
+  .carousel .control-prev.control-arrow {
+    left: 15px;
+  }
+
+  .carousel .control-next.control-arrow {
+    right: 15px;
+  }
+
+  .carousel .control-next.control-arrow:before,
+  .carousel .control-prev.control-arrow:before {
+    border-right-width: 8px;
+    border-top-width: 8px;
+    border-bottom-width: 8px;
+  }
+
+  .carousel .control-next.control-arrow:before {
+    border-left-width: 8px;
+  }
+}
